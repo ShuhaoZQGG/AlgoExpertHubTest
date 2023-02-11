@@ -1,15 +1,7 @@
 def selectionSort(array):
     # Write your code here.
-    i = 0
-    while i < len(array) - 1:
-         j, smallest = i, i
-         while j < len(array) - 1:
-             j += 1
-             if array[j] < array[smallest]:
-                 smallest = j
-         array[i], array[smallest] = array[smallest], array[i]
-         i += 1
+    for i in range(len(array)):
+        arg_min = min(range(i, len(array)), key=lambda x:array[x])
+        array[i], array[arg_min] = array[arg_min], array[i]
     return array
-        
-        
 
