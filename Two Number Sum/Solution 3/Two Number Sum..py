@@ -1,12 +1,9 @@
 def twoNumberSum(array, targetSum):
     # Write your code here.
-    sortedArr = sorted(array)
-    l, h = 0, len(array) - 1
-    while l < h:
-        if sortedArr[l] + sortedArr[h] == targetSum:
-            return [sortedArr[l],sortedArr[h]]
-        elif sortedArr[l] + sortedArr[h] < targetSum:
-            l += 1
+    hm = {}
+    for i in range(len(array)):
+        if targetSum - array[i] not in hm:
+            hm[array[i]] = targetSum - array[i]
         else:
-            h -= 1
+            return [array[i], targetSum - array[i]]
     return []
