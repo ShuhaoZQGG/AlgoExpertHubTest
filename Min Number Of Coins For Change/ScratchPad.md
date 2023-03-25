@@ -1,1 +1,1 @@
-    return nums[n] if nums[n] !=  float("inf") else -1
+def minNumberOfCoinsForChange(n, denoms):
