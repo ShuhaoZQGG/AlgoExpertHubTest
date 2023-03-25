@@ -1,13 +1,15 @@
 def maxSubsetSumNoAdjacent(array):
+    # Write your code here.
+    n = len(array) - 1
+    return helper(n, array)
+def helper(i, array):
     if not array:
         return 0
-    if len(array) == 1:
+    if i == 0:
         return array[0]
-    # Write your code here.
-    n = len(array)
-    ans = [0] * n
-    ans[0] = array[0]
-    ans[1] = max(array[0], array[1])
-    for i in range(2, n):
-        ans[i] = max(ans[i-1], ans[i-2]+array[i])
-    return ans[-1]
+    elif i == 1:
+        return max(array[1], array[0])
+    else:
+        return max(helper(i-1, array), helper(i-2, array)+array[i])
+    
+
