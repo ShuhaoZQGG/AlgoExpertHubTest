@@ -1,3 +1,4 @@
+<pre>
 # Number Of Ways To Make Change
 
 
@@ -14,3 +15,4 @@ denoms = [1, 5]
 **Sample Output**
 2 // 1x1 + 1x5 and 6x1
 
+</pre>
