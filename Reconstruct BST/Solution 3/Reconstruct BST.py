@@ -17,15 +17,15 @@ def reconstructBst(preOrderTraversalValues):
 
 
 def reconstructBstByRange(lowerBound, upperBound, preOrderTraversalValues, currentSubTreeInfo):
-    idx = currentSubTreeInfo.rootIdx
-    if len(preOrderTraversalValues) == idx:
+    if len(preOrderTraversalValues) == currentSubTreeInfo.rootIdx:
         return None
+    rootValue = preOrderTraversalValues[currentSubTreeInfo.rootIdx]
 
 
-    if preOrderTraversalValues[idx] < lowerBound or preOrderTraversalValues[idx] >= upperBound:
+    if rootValue < lowerBound or rootValue >= upperBound:
         return None
     currentSubTreeInfo.rootIdx += 1
-    leftSubTree = reconstructBstByRange(lowerBound, preOrderTraversalValues[idx], preOrderTraversalValues, currentSubTreeInfo)
-    rightSubTree = reconstructBstByRange(preOrderTraversalValues[idx], upperBound, preOrderTraversalValues, currentSubTreeInfo)
-    return BST(preOrderTraversalValues[idx], leftSubTree, rightSubTree)
+    leftSubTree = reconstructBstByRange(lowerBound, rootValue, preOrderTraversalValues, currentSubTreeInfo)
+    rightSubTree = reconstructBstByRange(rootValue, upperBound, preOrderTraversalValues, currentSubTreeInfo)
+    return BST(rootValue, leftSubTree, rightSubTree)
 
