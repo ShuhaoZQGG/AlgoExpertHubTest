@@ -6,21 +6,23 @@ class BST:
         self.right = right
 
 
-
-
 def reconstructBst(preOrderTraversalValues):
     # Write your code here.
-    root = BST(preOrderTraversalValues[0])
-    left_values = []
-    right_values = []
-    for n in preOrderTraversalValues[1:]:
-        if n < root.value:
-            left_values.append(n)
-        else:
-            right_values.append(n)
-    if left_values:
-        root.left = reconstructBst(left_values)
-    if right_values:
-        root.right = reconstructBst(right_values)
-    return root
+    global level
+    level = 0
+    return reconstructBstByRange(-float('inf'), float('inf'), preOrderTraversalValues)
 
+
+def reconstructBstByRange(lowerBound, upperBound, preOrderTraversalValues):
+    global level
+    if len(preOrderTraversalValues) == level:
+        return None
+    rootValue = preOrderTraversalValues[level]
+
+
+    if rootValue < lowerBound or rootValue >= upperBound:
+        return None
+    level += 1
+    leftSubTree = reconstructBstByRange(lowerBound, rootValue, preOrderTraversalValues)
+    rightSubTree = reconstructBstByRange(rootValue, upperBound, preOrderTraversalValues)
+    return BST(rootValue, leftSubTree, rightSubTree)
