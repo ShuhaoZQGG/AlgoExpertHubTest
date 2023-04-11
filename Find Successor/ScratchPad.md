@@ -2,5 +2,6 @@
 insert inorder values into an array, find the node at i and return arr[i+1]
 
 solution 2:
-by observation, if the node has a right child, then the successor is the right child
-if not, the successor will be its parent</pre>
+inorder: left - visit - right
+if a node has a right sub tree, its successor must be at the left most child of its right sub tree
+if a node doesn't have a right sub tree, its successor would be the ancestor (from the tree perspective) which contains this node at its left subtree</pre>
