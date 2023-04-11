@@ -11,26 +11,20 @@ class BinaryTree:
 
 def findSuccessor(tree, node):
     # Write your code here.
-    arr = inOrderTraversal(tree)
-    for i in range(len(arr)):
-        if i < len(arr) - 1:
-            if arr[i] == node:
-                return arr[i + 1]
-        else:
-            return None
+    if node.right:
+        return getLeftMostChild(node)
+    return getRightMostParent(node)
 
 
-def inOrderTraversal(tree, arr = []):
-    if tree is None:
-        return arr
+def getLeftMostChild(node):
+    currentNode = node.right
+    while currentNode.left:
+        currentNode = currentNode.left
+    return currentNode
 
 
-    inOrderTraversal(tree.left, arr)
-    arr.append(tree)
-    inOrderTraversal(tree.right, arr)
-    return arr
-
-
-
-
+def getRightMostParent(node):
+    while node.parent and node.parent.right == node:
+        node = node.parent
+    return node.parent
     
