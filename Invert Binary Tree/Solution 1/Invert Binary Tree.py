@@ -1,13 +1,11 @@
 def invertBinaryTree(tree):
     # Write your code here.
-    if tree.left:
-        invertBinaryTree(tree.left)
-    if tree.right:
-        invertBinaryTree(tree.right)
-    if tree.left or tree.right:
-        tree.right, tree.left = tree.left, tree.right
-    else:
+    if tree is None:
         return tree
+    invertBinaryTree(tree.left)
+    invertBinaryTree(tree.right)
+    tree.right, tree.left = tree.left, tree.right
+    return tree
 
 
 
