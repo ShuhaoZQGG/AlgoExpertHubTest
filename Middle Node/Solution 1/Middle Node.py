@@ -24,7 +24,7 @@ def middleNode(linkedList):
     # 7     2
     # 5     7
     # 5.next = 10, 5.next.next = None, we know it reaches the end, and the size is odd, 2nd pointer = 2nd pointer.next
-    pointer1, pointer2 = LinkedList(None), LinkedList(None)
+    pointer1 = pointer2 = LinkedList(None)
     pointer1.next = linkedList
     pointer2.next = linkedList
     while pointer2.next and pointer2.next.next:
