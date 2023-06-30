@@ -32,27 +32,25 @@ class DoublyLinkedList:
 
     def insertBefore(self, node, nodeToInsert):
         # Write your code here.
-        if nodeToInsert != self.head or nodeToInsert != self.tail:
-            self.remove(nodeToInsert)
-            nodeToInsert.prev = node.prev
-            nodeToInsert.next = node
-            if node.prev is None:
-                self.head = nodeToInsert
-            else:
-                node.prev.next = nodeToInsert
-            node.prev = nodeToInsert
+        self.remove(nodeToInsert)
+        nodeToInsert.prev = node.prev
+        nodeToInsert.next = node
+        if node.prev is None:
+            self.head = nodeToInsert
+        else:
+            node.prev.next = nodeToInsert
+        node.prev = nodeToInsert
             
     def insertAfter(self, node, nodeToInsert):
         # Write your code here.
-        if nodeToInsert != self.head or nodeToInsert != self.tail:
-            self.remove(nodeToInsert)
-            nodeToInsert.prev = node
-            nodeToInsert.next = node.next
-            if node.next is None:
-                self.tail = nodeToInsert
-            else:
-                node.next.prev = nodeToInsert
-            node.next = nodeToInsert
+        self.remove(nodeToInsert)
+        nodeToInsert.prev = node
+        nodeToInsert.next = node.next
+        if node.next is None:
+            self.tail = nodeToInsert
+        else:
+            node.next.prev = nodeToInsert
+        node.next = nodeToInsert
 
 
     def insertAtPosition(self, position, nodeToInsert):
