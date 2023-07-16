@@ -20,7 +20,7 @@ def phoneNumberMnemonics(phoneNumber):
 
 
 def recursion(phoneNumber, currentCombination, mnemonic, map, index):
-   if index > len(phoneNumber) - 1:
+   if index == len(phoneNumber):
        mnemonic.append(currentCombination)
        return mnemonic
     
