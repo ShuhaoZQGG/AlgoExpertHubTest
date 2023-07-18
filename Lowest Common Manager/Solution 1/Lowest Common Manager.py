@@ -25,10 +25,6 @@ def getLowestCommonManager(topManager, reportOne, reportTwo):
     while managers[reportOne.name] != managers[reportTwo.name]:
         if reportOne.name == reportTwo.name:
             return reportOne
-        if reportOne.name == "A":
-            return reportOne
-        if reportTwo.name == "A":
-            return reportTwo
         reportOne, lvlOne = managers[reportOne.name]
         reportTwo, lvlTwo = managers[reportTwo.name]
     return managers[reportOne.name][0]
