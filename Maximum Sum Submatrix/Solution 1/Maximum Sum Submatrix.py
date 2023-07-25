@@ -11,7 +11,6 @@ def getSizesOfSubmatrix(matrix, size, rowIdx, colIdx, maximumValue):
     res = 0
     for i in range(rowIdx,row):
         for j in range(colIdx,col):
-           print(i, j)
            res += matrix[i][j]
     maximumValue = max(maximumValue, res)
     if row == len(matrix) and col == len(matrix[0]):
